@@ -28,6 +28,8 @@ import { useEffect, useState } from 'react';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
+import { InboxIcon, MessageIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -151,6 +153,12 @@ function Header() {
                   <FontAwesomeIcon icon={faCloudUpload} />
                 </button>
               </Tippy>
+
+              <Tippy delay={[0, 200]} content="Message" placement="bottom">
+                <button className={cx('action-btn')}>
+                  <MessageIcon />
+                </button>
+              </Tippy>
             </>
           ) : (
             <>
@@ -160,10 +168,11 @@ function Header() {
           )}
           <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
             {currentUser ? (
-              <img
+              <Image
                 className={cx('user-avatar')}
                 src="https://scontent.fsgn2-5.fna.fbcdn.net/v/t39.30808-6/241381208_1312331742556319_4747624962609090885_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=pwvHSGfG_GsAX9VkVhN&_nc_ht=scontent.fsgn2-5.fna&oh=00_AT_qi66J1wBbAcSEqIZ5eR05OogPPbBs2-YtVbUH_hjKkw&oe=62A86C76"
                 alt="Tonny"
+                // fallBack="https://scontent.fsgn2-5.fna.fbcdn.net/v/t39.30808-6/241381208_1312331742556319_4747624962609090885_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=pwvHSGfG_GsAX9VkVhN&_nc_ht=scontent.fsgn2-5.fna&oh=00_AT_qi66J1wBbAcSEqIZ5eR05OogPPbBs2-YtVbUH_hjKkw&oe=62A86C76"
               />
             ) : (
               <button className={cx('more-btn')}>
